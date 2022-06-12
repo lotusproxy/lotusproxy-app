@@ -1,0 +1,19 @@
+function help_echo
+ echo '
+(./)app [run, config, stop, v/version, h/help]
+
+    run: Start the proxy
+        Note: Use (./)app stop to turn off the proxy 
+
+    config: Configure details
+
+    stop: Shutdown the proxy
+
+    v/version: Show version
+    
+    h/help: Show this msg
+Args
+(./)app [-d/--directory=]
+
+    -d/--directory: Set root directory for configs and profiles'
+end
