@@ -143,7 +143,7 @@ function new_profile
             profile_guide
             sleep 1
             clear
-            config
+            new_profile
         case '*'
             logger 4 "Unexpect input, abort"
             sleep 1
@@ -326,6 +326,9 @@ function core_launch
     if test -r ./config.json
         rm ./config.json
     end
+    trap "killall (basename $core) &>/dev/null" KILL
+    trap "killall (basename $core) &>/dev/null" INT
+    trap "killall (basename $core) &>/dev/null" EXIT
     echo "{
     \"log\": {
         \"loglevel\": \"$logcat\"
@@ -525,7 +528,7 @@ function flint
     end
 end
 
-echo Build_Time_UTC=2022-06-12_04:03:44
+echo Build_Time_UTC=2022-06-12_04:26:40
 set -lx prefix "[LotusProxy]"
 set -lx root ~/.config/lotusproxy
 argparse -i -n $prefix 'd/directory=' -- $argv

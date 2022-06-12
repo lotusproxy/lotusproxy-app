@@ -3,6 +3,9 @@ function core_launch
     if test -r ./config.json
         rm ./config.json
     end
+    trap "killall (basename $core) &>/dev/null" KILL
+    trap "killall (basename $core) &>/dev/null" INT
+    trap "killall (basename $core) &>/dev/null" EXIT
     echo "{
     \"log\": {
         \"loglevel\": \"$logcat\"
